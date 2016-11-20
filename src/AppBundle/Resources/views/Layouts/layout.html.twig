@@ -9,7 +9,7 @@
 	{% block stylesheets %}
 		<!-- Incluir estilos CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" href="{{ asset('assets/css/lumen.bootstrap.min.css') }}" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.cosmo.min.css') }}" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" type="text/css" rel="stylesheet">
 
 	{% endblock %}
@@ -21,6 +21,8 @@
 		</script>
 		<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('assets/js/jquery-ias.min.js') }}"></script>
+		<script src="{{ asset('assets/js/custom/common.js') }}"></script>
 	{% endblock %}
 
 </head>
@@ -82,6 +84,24 @@
 
 					{% if app.user != null %}
 						<ul class="nav navbar-nav navbar-right">
+
+							<li>
+								<a href="{{path("private_message_index")}}">
+									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+									&nbsp;
+									Mensajes privados
+									<span class="label label-success label-notifications-msg"></span>
+								</a>
+							</li>
+							<li>
+								<a href="{{path("notification_page")}}">
+									<span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+									&nbsp;
+									Notificaciones
+									<span class="label label-success label-notifications"></span>
+								</a>
+							</li>
+
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
@@ -98,7 +118,7 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="">
+										<a href="{{ path('user_profile', {'nickname': app.user.nick})}}">
 											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 											&nbsp;Mi perfil
 										</a>

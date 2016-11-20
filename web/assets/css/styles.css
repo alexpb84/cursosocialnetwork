@@ -20,6 +20,135 @@ body{
 	text-align: center;
 }
 
+/* HOME */
+#timeline{
+	margin-right: 20px;
+	min-height: 750px;
+	padding-bottom: 20px;
+}
+
+.box-header{
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	padding-top: 0px;
+	font-size: 25px;
+}
+
+#user-card{
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+#user-card .avatar{
+	background: #eee;
+	border-radius: 500px;
+	width: 75px;
+	height: 75px;
+	overflow: hidden;
+	float: left;
+	margin-right: 12px;
+	margin-top: -5px;
+}
+
+#user-card .avatar img{
+	height: 100%;
+	text-align: center;
+}
+
+#user-card .avatar img.default{
+	opacity: 0.5;
+}
+
+#user-card .name-surname{
+	float: left;
+	font-size: 20px;
+	padding: 10px;
+}
+
+#user-card .name-surname a{
+	color: black;
+}
+
+#user-card .nickname{
+	opacity: 0.7;
+}
+
+#user-card .following-data{
+	width: 25%;
+	float: left;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	padding: 5px;
+	margin-top: 10px;
+
+}
+
+#user-card .following-data a{
+	color: #444;
+}
+
+#user-card .following-data a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+#user-card .following-data .label-stat{
+	display: block;
+}
+
+#user-card .following-data .number-stat{
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#new-publication input,
+textarea{
+	margin-bottom: 10px;
+}
+
+.pub-name-link{
+	font-weight: bold;
+	color: black;
+
+}
+
+.pub-date{
+	color: gray;
+}
+
+.pub-image{
+	display: none;
+	transition:  all 300ms;
+}
+
+.pub-image img{
+	width: 100%;
+	text-align: center;
+	display: block;
+	margin: 0px auto;
+}
+
+.publication .glyphicon{
+	margin-right: 7px;
+	cursor: pointer;
+	color: #444 !important;
+}
+
+.like{
+	font-size: 25px;
+	margin-top: -45px;
+}
+
+.like btn-like:hover{
+	color: red !important;
+	cursor: pointer;
+}
+
+.like .active{
+	color: red !important;
+}
+
 /* REGISTRO */
 .box-form,
 .box-default{
@@ -36,7 +165,15 @@ body{
 }
 
 /* GENTE */
-.user-item .avatar{
+
+.user_link{
+	color: black;
+	font-weight: bold;
+}
+
+.user-item .avatar,
+.publication-item .avatar
+{
 	background: #eee;
 	border-radius: 500px;
 	width: 75px;
@@ -47,12 +184,96 @@ body{
 	margin-top: -5px;
 }
 
-.user-item .avatar img{
+.user-item .avatar img,
+.publication-item .avatar img{
 	height: 100%;
 	text-align: center;
 }
 
-.user-item .user-item-content{
+.user-item .user-item-content,
+.publication-item .publication-item-content{
 	padding: 10px;
 	margin-left: 85px;
 }
+
+
+/* PERFILES */
+
+.profile-box{
+	padding: 20px;
+	margin: 0px auto;
+	float: none; 
+}
+
+.profile-box > .avatar{
+	background: #eee;
+	border-radius: 1000px;
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+
+.profile-box > .avatar img{
+	height: 100%;
+	text-align: center;
+}
+
+.profile-box .name-surname{
+	margin: 0px auto;
+	text-align: center;
+}
+
+.profile-box .bio{
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+
+}
+
+.profile-box #user-stats{
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	width: 47%;
+	text-align: center;
+}
+
+.profile-box #user-stats .following-data{
+	float: left;
+}
+
+.profile-box #user-stats a{
+	color: #444;
+}
+
+.profile-box #user-stats .label-stat{
+	display: block;
+	font-size: 18px;
+	margin-right: 20px;
+	margin-left: 20px;
+	text-align: center;
+}
+
+.profile-box #user-stats .number-stat{
+	font-weight: bold;
+}
+
+.profile-box .buttons-following{
+	margin-top: 20px;
+}
+
+
+/* private messages */
+
+.box-private-message input, 
+.box-private-message select, 
+.box-private-message textarea{
+	margin-bottom: 10px;
+}
+
+
+

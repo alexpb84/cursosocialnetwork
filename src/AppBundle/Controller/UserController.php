@@ -164,7 +164,7 @@ class UserController extends Controller{
 					$flush = $em->flush();
 
 					if($flush == null){
-						$status = "Tus datos se ahn guardado correctamente";
+						$status = "Tus datos se han guardado correctamente";
 
 					}else{
 						$status = "No se han podido guardar tus datos";
@@ -214,7 +214,7 @@ class UserController extends Controller{
 
 		$em = $this->getDoctrine()->getManager();
 
-		$search = $request->query->get("search", null);
+		$search = trim($request->query->get("search", null));
 
 		if($search == null){
 			return $this->redirect($this->generateURL('home_publications'));
@@ -239,33 +239,39 @@ class UserController extends Controller{
 			);
 	}
 
+	public function profileAction(Request $request, $nickname = null){
+		
+		$em = $this->getDoctrine()->getManager();
 
+		if($nickname != null){
+			$user_repo = $em->getRepository("BackendBundle:User");
+			$user = $user_repo->findOneBy(array("nick" => $nickname));
+		}else{
+			$user = $this->getUser();
+		}
 
+		if(empty($user) || !is_object($user)){
+			return $this->redirect($this->generateUrl('home_publications'));
+		}
 
+		$user_id = $user->getId();
+		$dql = "SELECT p FROM BackendBundle:Publication p WHERE p.user = $user_id ORDER BY p.id DESC";
+		$query = $em->createQuery($dql);
 
+		$paginator = $this->get("knp_paginator");
+		$pagination = $paginator->paginate(
+						$query, 
+						$request->query->getInt('page', 1),
+						5		//Usuarios por página
+					);
 
+		return $this->render('AppBundle:User:profile.html.twig',
+			array(
+				"user" 		 => $user,
+				"pagination" => $pagination
+				)
+			);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 }

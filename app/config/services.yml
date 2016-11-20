@@ -7,3 +7,46 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+  following.twig_extension:
+    class: AppBundle\Twig\FollowingExtension
+    public: false
+    arguments:
+      doctrine: "@doctrine"
+    tags:
+      - { name: twig.extension }
+
+  long_time.twig_extension:
+    class: AppBundle\Twig\LongTimeExtension
+    public: false
+    arguments:
+      doctrine: "@doctrine"
+    tags:
+      - { name: twig.extension }
+
+  liked.twig_extension:
+    class: AppBundle\Twig\LikedExtension
+    public: false
+    arguments:
+      doctrine: "@doctrine"
+    tags:
+      - { name: twig.extension }
+
+  user_stats.twig_extension:
+    class: AppBundle\Twig\UserStatsExtension
+    public: false
+    arguments:
+      doctrine: "@doctrine"
+    tags:
+      - { name: twig.extension }
+
+  get_user.twig_extension:
+    class: AppBundle\Twig\GetUserExtension
+    public: false
+    arguments:
+      doctrine: "@doctrine"
+    tags:
+      - { name: twig.extension }
+
+  app.notification_service:
+    class: AppBundle\Services\NotificationService
+    arguments: ["@doctrine.orm.entity_manager"]
